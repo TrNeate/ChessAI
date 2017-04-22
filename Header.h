@@ -41,6 +41,10 @@ enum Ptypes {pawn, knight, bishop, rook, queen, king};
 struct Move{
     Piece *piece;
     Space *newSquare;
+    Move(Piece *p, Space *s){
+        piece = p;
+        newSquare = s;
+    }
 };
 
 
@@ -64,6 +68,7 @@ private:
 class Pawn : public Piece{
     public:
     Pawn(bool white, Space *myspace, Board *boardd) : Piece(white, myspace, pawn, boardd){}
+    vector<Move> getPossibleMoves(Board *board);
 };
 
 
